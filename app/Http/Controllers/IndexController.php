@@ -14,7 +14,7 @@ class IndexController extends Controller
     
     public function sendmail(Request $request){
         $data = $request->all();
-        dd($data);
+        // dd($data);
         $pdf = PDF::loadView('pdf.membership', compact('data'));
         Mail::to($data['email'])->send(new SendMailable($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailable($data, $pdf));
