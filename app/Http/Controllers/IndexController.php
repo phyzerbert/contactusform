@@ -17,7 +17,6 @@ class IndexController extends Controller
             'email' => 'required|email',
         ]);
         $data = $request->all();
-        // dd($data);
         $pdf = PDF::loadView('pdf.membership', compact('data'));
         Mail::to($data['email'])->send(new SendMailable($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailable($data, $pdf));
