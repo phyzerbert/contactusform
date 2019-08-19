@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/sendmail', 'IndexController@sendmail')->name('sendmail');
+Route::get('/testpdf', 'IndexController@testpdf')->name('testpdf');

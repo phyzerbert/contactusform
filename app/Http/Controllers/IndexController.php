@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDF;
-use Mail;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class IndexController extends Controller
 {
@@ -12,26 +14,33 @@ class IndexController extends Controller
     
     public function sendmail(Request $request){
         $data = $request->all();
-        $pdf = PDF::loadView('pdf.test');
-        try{
-            Mail::send('email.membership', $data, function($message)use($data,$pdf) {
-                $message->to($data["email"], 'Membership Agreement')
-                ->subject('Membership Agreement')
-                ->attachData($pdf->output(), "membership_agreement.pdf");
-            });
-        }catch(JWTException $exception){
-            $this->serverstatuscode = "0";
-            $this->serverstatusdes = $exception->getMessage();
-        }
-        if (Mail::failures()) {
-             $this->statusdesc  =   "Error sending mail";
-             $this->statuscode  =   "0";
-        }else{
-           $this->statusdesc  =   "Message sent Succesfully";
-           $this->statuscode  =   "1";
-        }
-
-
+        $pdf = PDF::loadView('pdf.membership', compact('data'));
+        Mail::to("xian1017@outlook.com")->send(new SendMailable($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
+    }
+
+    public function testpdf(){
+        $data = [
+            "first_name" => "Yuyuan",
+            "last_name" => "Zhang",
+            "address" => "Zhenxing, Dandong, Liaoning, China",
+            "email" => "xian1017@outlook.com",
+            "phone" => "15641572188",
+            "date_of_birth" => "14/08/2019",
+            "gender" => "Male",
+            "parent_name" => "Ping",
+            "emergency_contact" => "Ping",
+            "emergency_no" => "15641572188",
+            "membership_fees" => "pre-payment for 10 Class Pass",
+            "start_date" => "13/08/2019",
+            "direct_debit_payment_period" => "Each Month",
+            "direct_debit_amount" => "100",
+            "10_class_pass_amount" => "10",
+            "parent_signature_date" => "31/07/2019",
+            "signature_date" => "31/07/2019",
+        ];
+        $pdf = PDF::loadView('pdf.membership', compact('data'));
+        return $pdf->download('email.pdf');
+        // return view('pdf.membership', compact('data'));
     }
 }

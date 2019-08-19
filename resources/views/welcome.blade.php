@@ -8,12 +8,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
+
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </head>
 <body>
     <div class="main py-4">
@@ -24,7 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <img src="{{asset('images/logo.png')}}" width="80" alt="">
+                                    <img src="{{asset('images/logo.png')}}" width="120" alt="">
                                 </div>
                                 <div class="col-md-10">
                                     <h3 class="mt-3">MEMBERSHIP AGREEMENT</h3>
@@ -71,19 +74,19 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="first_name">Date Of Birth</label>
-                                        <input type="text" class="form-control" name="date_of_birth" placeholder="Enter Date Of Birth" />
+                                        <input type="text" class="form-control datepicker" name="date_of_birth" autocomplete="off" placeholder="Enter Date Of Birth" />
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="first_name">Date Of Birth</label>
+                                        <label for="first_name">Gender</label>
                                         <div class="input-group mt-2">
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" checked name="gender">Male
+                                                    <input type="radio" class="form-check-input" checked name="gender" value="Male" />Male
                                                 </label>
                                             </div>
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="gender">Female
+                                                    <input type="radio" class="form-check-input" name="gender" value="Female" />Female
                                                 </label>
                                             </div>
                                         </div>                                        
@@ -109,19 +112,19 @@
                                         <div class="input-group mt-2">
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" checked name="membership_fees">Preodic payment by direct debitUpfront
+                                                    <input type="radio" class="form-check-input" checked name="membership_fees" value="Preodic payment by direct debitUpfront" />Preodic payment by direct debitUpfront
                                                 </label>
                                             </div>
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="membership_fees">pre-payment for 10 Class Pass
+                                                    <input type="radio" class="form-check-input" name="membership_fees" value="pre-payment for 10 Class Pass" />pre-payment for 10 Class Pass
                                                 </label>
                                             </div>
                                         </div>  
                                     </div>
                                     <div class="col-md-6">
                                         <label for="first_name">Membership Start Date</label>
-                                        <input type="text" class="form-control" name="start_date" placeholder="Enter Start Date" />
+                                        <input type="text" class="form-control datepicker" name="start_date" autocomplete="off" placeholder="Enter Start Date" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -130,17 +133,17 @@
                                         <div class="input-group mt-2">
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" checked name="direct_debit_payment_period">Each Week
+                                                    <input type="radio" class="form-check-input" checked name="direct_debit_payment_period"  value="Each Week" />Each Week
                                                 </label>
                                             </div>
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="direct_debit_payment_period">Each Fortnight
+                                                    <input type="radio" class="form-check-input" name="direct_debit_payment_period" value="Each Fortnight" />Each Fortnight
                                                 </label>
                                             </div>
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="direct_debit_payment_period">Each Month
+                                                    <input type="radio" class="form-check-input" name="direct_debit_payment_period" value="Each Month" />Each Month
                                                 </label>
                                             </div>
                                         </div>  
@@ -247,7 +250,7 @@
                                             </div> 
                                             <div class="col-md-12 mt-3">
                                                 <label class="font-weight-bold" for="parent_signature_date">Date</label>
-                                                <input type="text" class="form-control" name="parent_signature_date" id="parent_signature_date" placeholder="Enter Date" />
+                                                <input type="text" class="form-control datepicker-bottom" name="parent_signature_date" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
                                             </div>                                     
                                         </div>
                                                                               
@@ -263,7 +266,7 @@
                                             </div> 
                                             <div class="col-md-12 mt-3">
                                                 <label class="font-weight-bold" for="signature_date">Date</label>
-                                                <input type="text" class="form-control" name="signature_date" id="signature_date" placeholder="Enter Date" />
+                                                <input type="text" class="form-control datepicker-bottom" name="signature_date" autocomplete="off" id="signature_date" placeholder="Enter Date" />
                                             </div>                                     
                                         </div>                                     
                                     </div>
@@ -274,11 +277,6 @@
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
-
-
-
-
-
                             </form>
                         </div>
                     </div>
@@ -286,5 +284,19 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".datepicker").datepicker({
+                orientation: 'auto bottom',
+                format: 'dd/mm/yyyy',
+            });
+
+            $(".datepicker-bottom").datepicker({
+                orientation: 'auto top',
+                format: 'dd/mm/yyyy',
+            });
+        })
+    </script>
 </body>
 </html>
