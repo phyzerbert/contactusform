@@ -13,6 +13,9 @@ class IndexController extends Controller
     
     
     public function sendmail(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+        ]);
         $data = $request->all();
         // dd($data);
         $pdf = PDF::loadView('pdf.membership', compact('data'));

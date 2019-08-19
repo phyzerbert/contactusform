@@ -162,7 +162,7 @@
                                             Signature of Student
                                         @endif                                            
                                     </h6>
-                                    <div class="card" style="height:105px;width:300px;">
+                                    <div class="card mt-3" style="height:105px;width:300px;">
                                         <img src="data:image/png;base64, {{$data['signature1']}}" alt="">
                                     </div>
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['parent_signature_date']}}</span>                                                                               
@@ -170,7 +170,7 @@
                                 
                                 <div class="w-50 float-right">
                                     <h6 class="font-weight-bold">Signature</h6>
-                                    <div class="card" style="height:105px;width:300px;">
+                                    <div class="card mt-3" style="height:105px;width:300px;">
                                         <img src="data:image/png;base64, {{$data['signature2']}}" alt="">
                                     </div>
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['signature_date']}}</span>                                           
