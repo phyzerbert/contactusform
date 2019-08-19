@@ -57,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('sendmail')}}" method="post" id="membership_form">
+                            <form action="{{route('membership')}}" method="post" id="membership_form">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6">

@@ -33,7 +33,8 @@ class SendMailMembership extends Mailable
     public function build()
     {
         return $this->view('email.membership')
-            ->attachData($this->pdf->output(), 'membership_agreement.pdf', [
+            ->from("info@gbsurfersparadise.com.au", "Membership")
+            ->attachData($this->pdf->output(), 'membership.pdf', [
                 'mime' => 'application/pdf',
             ]);
     }
