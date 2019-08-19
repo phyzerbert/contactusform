@@ -16,11 +16,16 @@
 
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </head>
 <body>
     <div class="main py-4">
         <div class="container-fluid">
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Email is sent successfully !</strong>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -284,6 +289,7 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     <script>
         $(document).ready(function(){

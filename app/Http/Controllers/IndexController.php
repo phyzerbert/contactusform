@@ -15,7 +15,8 @@ class IndexController extends Controller
     public function sendmail(Request $request){
         $data = $request->all();
         $pdf = PDF::loadView('pdf.membership', compact('data'));
-        Mail::to("xian1017@outlook.com")->send(new SendMailable($data, $pdf));
+        Mail::to($data['email'])->send(new SendMailable($data, $pdf));
+        Mail::to(env('ADMIN_EMAIL'))->send(new SendMailable($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
     }
 
