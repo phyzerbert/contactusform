@@ -46,8 +46,7 @@
                                         <h3 class="mt-0">SURFERS PARADOISE</h3>
                                         <P>Membership Suspension Request Form</P>
                                     </div>
-                                </div>
-                                
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -58,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('freeze')}}" method="post" id="membership_form">
+                            <form action="{{route('freeze')}}" method="post" id="freeze_form">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6">
@@ -105,11 +104,11 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="first_name">Suspension Starting Date</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Enter Cancelation Date" />
+                                        <input type="text" class="form-control datepicker" name="start_date" autocomplete="off" placeholder="Enter Cancelation Date" />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="first_name">Suspension End Date</label>
-                                        <input type="text" class="form-control" name="phone" placeholder="Enter Last Debit Date" />
+                                        <input type="text" class="form-control datepicker" name="end_date" autocomplete="off" placeholder="Enter Last Debit Date" />
                                     </div>
                                 </div>
 
@@ -120,10 +119,8 @@
 
                                         <h4 class="font-weight-bold" style="text-decoration: underline">Payment Service Provider</h4>
                                         <p>Payment services for this membership are supplied by our payment service provider Intergrapay(https://console.integrapay.com.au) You will be asked to provide your payment details (BSB and Account) to Integrapay on sign up. You will be presented and must agree to Integrapay's terms and conditions when doing so which includes paying all fees associated with yoiur payments through the IntegraPay system. </p>
-                                        <h4 class="font-weight-bold" style="text-decoration: underline">General Terms</h4>
-                                        <p></p>
 
-                                        <h4 class="font-weight-bold" style="text-decoration: underline"></h4>
+                                        <h4 class="font-weight-bold" style="text-decoration: underline">General Terms</h4>
                                         <ol>
                                             <li>You agree to follow all direction given by management, instructors and other employees while at  Gracie Barra Surfers Paradise to ensure everyone safety and wellbeing.</li>
                                             <li>You are required to familiarise yourself with, and abide by, the official Gracie Barra Training Etiquette. This is displayed at the school, and can also be found at (https://graciebarra.com/why-gracie-barra/training-etiquette/)</li>
@@ -228,12 +225,6 @@
     <script>
         $(document).ready(function(){
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
             $(".datepicker").datepicker({
                 orientation: 'auto bottom',
                 format: 'dd/mm/yyyy',
@@ -252,7 +243,7 @@
 						let canvas_img_data = canvas.toDataURL('image/png');
 						let img_data = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
                         $("#signature").val(img_data);	
-                        $("#membership_form").submit();							
+                        $("#freeze_form").submit();							
 					}
 				});
             });

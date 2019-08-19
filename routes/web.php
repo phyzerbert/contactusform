@@ -31,7 +31,7 @@ Route::get('/cancelation', function () {
     return view('cancelation');
 });
 Route::post('/membership', 'IndexController@membership')->name('membership');
-Route::post('/freeze', 'IndexController@membership')->name('freeze');
+Route::post('/freeze', 'IndexController@freeze')->name('freeze');
 Route::post('/trial', 'IndexController@trial')->name('trial');
 Route::post('/cancelation', 'IndexController@cancelation')->name('cancelation');
 Route::get('/testpdf', 'IndexController@testpdf')->name('testpdf');
