@@ -7,6 +7,9 @@ use PDF;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailMembership;
+use App\Mail\SendMailFreeze;
+use App\Mail\SendMailTrial;
+use App\Mail\SendMailCancelation;
 
 class IndexController extends Controller
 {
@@ -21,7 +24,20 @@ class IndexController extends Controller
         Mail::to($data['email'])->send(new SendMailMembership($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailMembership($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
+    }    
+    
+    public function freeze(Request $request){
+        $request->validate([
+            // 'email' => 'required|email',
+        ]);
+        $data = $request->all();
+        $pdf = PDF::loadView('pdf.freeze', compact('data'));
+        Mail::to($data['email'])->send(new SendMailFreeze($data, $pdf));
+        Mail::to(env('ADMIN_EMAIL'))->send(new SendMailFreeze($data, $pdf));
+        return back()->with('success', 'Email is sent successfully');
     }
+
+
 
     public function testpdf(){
         $data = [
