@@ -152,29 +152,27 @@
                                 
                             <div class="w-100 clearfix">
                                 <div class="w-50 float-left">
-                                    <div class="w-100">
-                                        <h6 class="font-weight-bold">
-                                            @php
-                                                $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
-                                            @endphp
-                                            @if ($age < 18)
-                                                Signature of Parent
-                                            @else
-                                                Signature of Student
-                                            @endif                                            
-                                        </h6>
-                                        <div class="card card-body w-75" style="height:100px"></div>
-                                    </div> 
+                                    <h6 class="font-weight-bold">
+                                        @php
+                                            $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
+                                        @endphp
+                                        @if ($age < 18)
+                                            Signature of Parent
+                                        @else
+                                            Signature of Student
+                                        @endif                                            
+                                    </h6>
+                                    <div class="card" style="height:105px;width:300px;">
+                                        <img src="data:image/png;base64, {{$data['signature1']}}" alt="">
+                                    </div>
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['parent_signature_date']}}</span>                                                                               
                                 </div>
                                 
                                 <div class="w-50 float-right">
-                                    <div class="w-100">
-                                        <h6 class="font-weight-bold">Signature</h6>
-                                        <div class="card w-75">
-                                            <div class="card-body" style="height:100px"></div>
-                                        </div>
-                                    </div> 
+                                    <h6 class="font-weight-bold">Signature</h6>
+                                    <div class="card" style="height:105px;width:300px;">
+                                        <img src="data:image/png;base64, {{$data['signature2']}}" alt="">
+                                    </div>
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['signature_date']}}</span>                                           
                                 </div>
                             </div>

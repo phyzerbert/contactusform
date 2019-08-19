@@ -11,11 +11,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
+    <link href="plugins/sign/css/jquery.signaturepad.css" rel="stylesheet">
+    
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
 
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('plugins/sign/js/numeric-1.2.6.min.js')}}"></script>
+    <script src="{{asset('plugins/sign/js/bezier.js')}}"></script>
+    <script src="{{asset('plugins/sign/js/jquery.signaturepad.js')}}"></script>
+    <script src="{{asset('plugins/sign/js/html2canvas.js')}}"></script>
+    <script src="{{asset('plugins/sign/js/json2.min.js')}}"></script>
 </head>
 <body>
     <div class="main py-4">
@@ -50,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('sendmail')}}" method="post">
+                            <form action="{{route('sendmail')}}" method="post" id="membership_form">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6">
@@ -249,13 +256,17 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h6 class="font-weight-bold">Signature of Student (or Parent)</h6>
-                                                <div class="card w-50">
-                                                    <div class="card-body" style="height:100px"></div>
+                                                <input type="hidden" name="signature1" id="signature1" />
+                                                <div class="card card-body sign_area" style="width:345px;">
+                                                    <div class="sig sigWrapper" style="height:102px;">
+                                                        <div class="typed"></div>
+                                                        <canvas class="sign-pad" id="sign-pad1" width="300" height="100"></canvas>
+                                                    </div>
                                                 </div>
                                             </div> 
                                             <div class="col-md-12 mt-3">
                                                 <label class="font-weight-bold" for="parent_signature_date">Date</label>
-                                                <input type="text" class="form-control datepicker-bottom" name="parent_signature_date" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
+                                                <input type="text" class="form-control datepicker-bottom" name="parent_signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
                                             </div>                                     
                                         </div>
                                                                               
@@ -265,13 +276,17 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h6 class="font-weight-bold">Signature</h6>
-                                                <div class="card w-50">
-                                                    <div class="card-body" style="height:100px"></div>
+                                                <input type="hidden" name="signature2" id="signature2" />
+                                                <div class="card card-body sign_area" style="width:345px;">
+                                                    <div class="sig sigWrapper" style="height:102px;">
+                                                        <div class="typed"></div>
+                                                        <canvas class="sign-pad" id="sign-pad2" width="300" height="100"></canvas>
+                                                    </div>
                                                 </div>
                                             </div> 
                                             <div class="col-md-12 mt-3">
                                                 <label class="font-weight-bold" for="signature_date">Date</label>
-                                                <input type="text" class="form-control datepicker-bottom" name="signature_date" autocomplete="off" id="signature_date" placeholder="Enter Date" />
+                                                <input type="text" class="form-control datepicker-bottom" name="signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="signature_date" placeholder="Enter Date" />
                                             </div>                                     
                                         </div>                                     
                                     </div>
@@ -279,11 +294,11 @@
 
                                 <div class="row mt-3">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" id="btn-submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div>        
                     </div>
                 </div>
             </div>
@@ -293,6 +308,13 @@
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     <script>
         $(document).ready(function(){
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             $(".datepicker").datepicker({
                 orientation: 'auto bottom',
                 format: 'dd/mm/yyyy',
@@ -302,6 +324,29 @@
                 orientation: 'auto top',
                 format: 'dd/mm/yyyy',
             });
+
+            $('.sign_area').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:90});
+
+            $("#btn-submit").click(function(){
+                html2canvas([document.getElementById('sign-pad1')], {
+					onrendered: function (canvas) {
+						let canvas_img_data = canvas.toDataURL('image/png');
+						let img_data = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
+                        $("#signature1").val(img_data);								
+					}
+				});
+
+                html2canvas([document.getElementById('sign-pad2')], {
+					onrendered: function (canvas) {
+						let canvas_img_data = canvas.toDataURL('image/png');
+						let img_data = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
+						$("#signature2").val(img_data);
+                        $("#membership_form").submit();
+					}
+				});
+            });
+            
+
         })
     </script>
 </body>
