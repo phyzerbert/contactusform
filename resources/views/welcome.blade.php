@@ -42,7 +42,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{route('sendmail')}}" method="post">
+                                @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="first_name">First Name</label>
