@@ -153,7 +153,16 @@
                             <div class="w-100 clearfix">
                                 <div class="w-50 float-left">
                                     <div class="w-100">
-                                        <h6 class="font-weight-bold">Signature of Student (or Parent)</h6>
+                                        <h6 class="font-weight-bold">
+                                            @php
+                                                $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
+                                            @endphp
+                                            @if ($age < 18)
+                                                Signature of Parent
+                                            @else
+                                                Signature of Student
+                                            @endif                                            
+                                        </h6>
                                         <div class="card card-body w-75" style="height:100px"></div>
                                     </div> 
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['parent_signature_date']}}</span>                                                                               
