@@ -148,34 +148,19 @@
                                 <p class="font-weight-bold">By signing this agreement, I acknowledge that I have read, I understand and I agree to all details, payments and policies related to this agreement.</p>
                                 
                             </div>
-
-                                
-                            <div class="w-100 clearfix">
-                                <div class="w-50 float-left">
-                                    <h6 class="font-weight-bold">
-                                        @php
-                                            $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
-                                        @endphp
-                                        @if ($age < 18)
-                                            Signature of Parent
-                                        @else
-                                            Signature of Student
-                                        @endif                                            
-                                    </h6>
-                                    <div class="card mt-3" style="height:105px;width:300px;">
-                                        <img src="data:image/png;base64, {{$data['signature1']}}" alt="">
-                                    </div>
-                                    <h5 class="mt-4">Date : <span class="item-value">{{$data['parent_signature_date']}}</span>                                                                               
-                                </div>
-                                
-                                <div class="w-50 float-right">
+                            @php
+                                $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
+                            @endphp
+                            @if ($age >= 18)        
+                                <div class="w-100">
                                     <h6 class="font-weight-bold">Signature</h6>
                                     <div class="card mt-3" style="height:105px;width:300px;">
-                                        <img src="data:image/png;base64, {{$data['signature2']}}" alt="">
+                                        <img src="data:image/png;base64, {{$data['signature']}}" alt="">
                                     </div>
-                                    <h5 class="mt-4">Date : <span class="item-value">{{$data['signature_date']}}</span>                                           
+                                    <h5 class="mt-4">Date : <span class="item-value">{{$data['signature_date']}}</span>                                                                               
                                 </div>
-                            </div>
+                            @endif   
+                            
                         </div>
                     </div>
                 </div>

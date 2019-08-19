@@ -6,20 +6,20 @@ use Illuminate\Http\Request;
 use PDF;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailable;
+use App\Mail\SendMailMembership;
 
 class IndexController extends Controller
 {
     
     
-    public function sendmail(Request $request){
+    public function membership(Request $request){
         $request->validate([
             'email' => 'required|email',
         ]);
         $data = $request->all();
         $pdf = PDF::loadView('pdf.membership', compact('data'));
-        Mail::to($data['email'])->send(new SendMailable($data, $pdf));
-        Mail::to(env('ADMIN_EMAIL'))->send(new SendMailable($data, $pdf));
+        Mail::to($data['email'])->send(new SendMailMembership($data, $pdf));
+        Mail::to(env('ADMIN_EMAIL'))->send(new SendMailMembership($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
     }
 

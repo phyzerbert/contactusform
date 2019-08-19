@@ -18,5 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/sendmail', 'IndexController@sendmail')->name('sendmail');
+Route::get('/membership', function () {
+    return view('membership');
+});
+Route::post('/membership', 'IndexController@membership')->name('membership');
 Route::get('/testpdf', 'IndexController@testpdf')->name('testpdf');
