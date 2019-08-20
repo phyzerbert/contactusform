@@ -79,10 +79,22 @@
                                         <input type="text" class="form-control" name="first_name" placeholder="Enter Student First Name" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="first_name">Agreement Expiration Date</label>
-                                    <input type="text" class="form-control" name="expiration_date" placeholder="Enter Here" />
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Enter Email" />
+                                        @error('email')
+                                            <span class="invalid-feedback d-block" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Agreement Expiration Date</label>
+                                        <input type="text" class="form-control datepicker" name="expiration_date" placeholder="Enter Here" />
+                                    </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="first_name">Reason : </label>
                                     <div class="form-check-inline">

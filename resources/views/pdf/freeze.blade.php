@@ -52,7 +52,8 @@
                                         <td class="w-50">Student First Name : <span class="item-value">{{$data['first_name']}}</span></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="w-50">Agreement Expiration Date : <span class="item-value">{{$data['expiration_date']}}</span></td>
+                                        <td class="w-50">Email : <span class="item-value">{{$data['email']}}</span></td>
+                                        <td class="w-50">Agreement Expiration Date : <span class="item-value">{{$data['expiration_date']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="w-50">Reason : <span class="item-value">{{implode(', ', $data['reason'])}}</span></td>
