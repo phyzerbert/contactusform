@@ -28,6 +28,7 @@ class IndexController extends Controller
     public function freeze(Request $request){
         $request->validate([
             'email' => 'required|email',
+            'reason' => 'required',
         ]);
         $data = $request->all();
         $pdf = PDF::loadView('pdf.freeze', compact('data'));
@@ -39,6 +40,7 @@ class IndexController extends Controller
     public function trial(Request $request){
         $request->validate([
             'email' => 'required|email',
+            'befefits' => 'required',
         ]);
         $data = $request->all();
         // dd($data);
@@ -51,6 +53,7 @@ class IndexController extends Controller
     public function cancellation(Request $request){
         $request->validate([
             'email' => 'required|email',
+            'reason' => 'required',
         ]);
         $data = $request->all();
         // dd($data);
