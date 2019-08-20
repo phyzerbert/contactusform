@@ -9,6 +9,8 @@
     <style>
         .item-value {
             text-decoration: underline;
+            font-size: 15px;
+            font-weight: 500;
         }
         table#table-member>tbody>tr>td {
             height: 50px;;
@@ -83,9 +85,6 @@
                                 <h4 class="font-weight-bold" style="text-decoration: underline">Payment and Direct Debit Information</h4>
                                 <p>Direct debit membership payments will be automatically deducted by our third party biller Integrapay(https://www.integrapay.com.au/). You will be asked to provide your banking details and agree to Integrapay's Terms and and Conditions to commence direct debit payments, including all associated fees charged by Integrapay. Please note that additional fees may be charged for direct debits from credit cards. If there are insufficient funds in your bank account/credit card when your membership fees are due , Integrapay will charge you a rejection fee after the second attempt to deduct payment. Membership payments are non-refundable . Direct debits are due regardless of classes missed unless you have supplied Grecie Barra Surfers Paradise with a written notice of suspension or cancellation in accordance with the policies below. A 10 class pass must be purchased in full prior to commencing the first class. </p>
                                 <h4 class="font-weight-bold" style="text-decoration: underline">General Terms</h4>
-                                <p></p>
-
-                                <h4 class="font-weight-bold" style="text-decoration: underline"></h4>
                                 <ol>
                                     <li>You agree to follow all direction given by management, instructors and other employees while at  Gracie Barra Surfers Paradise to ensure everyone safety and wellbeing.</li>
                                     <li>You are required to familiarise yourself with, and abide by, the official Gracie Barra Training Etiquette. This is displayed at the school, and can also be found at (https://graciebarra.com/why-gracie-barra/training-etiquette/)</li>

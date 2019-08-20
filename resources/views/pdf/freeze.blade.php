@@ -9,6 +9,8 @@
     <style>
         .item-value {
             text-decoration: underline;
+            font-size: 15px;
+            font-weight: 500;
         }
         table#table-member>tbody>tr>td {
             height: 50px;;
