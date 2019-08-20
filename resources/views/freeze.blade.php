@@ -23,6 +23,9 @@
                 margin: 20px auto;
                 text-align: center;
             }
+            #logo {
+                text-align: center
+            }
         }
     </style>
 
@@ -48,20 +51,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mx-auto d-flex" id="logo">
-                                        <img class="mx-auto" style="margin:auto" src="{{asset('images/logo.png')}}" width="120" alt="">
-                                    </div>
-                                    <div style="position:absolute;top:0" id="title">
-                                        <h3 class="mt-0">SURFERS PARADISE</h3>
-                                        <P>Membership Suspension Request Form</P>
-                                    </div>
-                                </div>                                
+                                <div class="col-md-2" id="logo">
+                                    <img src="{{asset('images/logo.png')}}" id="logo-img" width="120" alt="">
+                                </div>
+                                <div class="col-md-10" id="title">
+                                    <h3 class="mt-3">SURFERS PARADISE</h3>
+                                    <P>Membership Suspension Request Form</P>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-               
+                </div>               
             </div>
             <div class="row mt-4">
                 <div class="col-md-12">
@@ -71,12 +71,12 @@
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                        <label for="first_name">Student Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Enter Student Last Name" />
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="first_name">Student First Name</label>
                                         <input type="text" class="form-control" name="first_name" placeholder="Enter Student First Name" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="first_name">Student Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Enter Student Last Name" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Agreement Expiration Date</label>
-                                        <input type="text" class="form-control datepicker" name="expiration_date" placeholder="Enter Here" />
+                                        <input type="text" class="form-control datepicker" name="expiration_date" autocomplete="off" placeholder="Enter Here" />
                                     </div>
                                 </div>
                                 

@@ -22,22 +22,15 @@
 <body>
     <div class="main py-4">
         <div class="container-fluid">
-            <div class="card card-body w-100" style="position:relative">
-                <div style="position:absolute;top:0">
-                    <h5 class="mt-0">GRACIE BARRA</h5>
+            <div class="card card-body w-100 d-inline-block">
+                <div class="w-25 float-left">
+                    <img src="{{asset('images/logo.png')}}" class="mt-3" width="100" alt="">
+                </div>
+                <div class="w-75 float-right">
+                    <h3 class="mt-3">GRACIE BARRA</h3>
                     <P>Membership Cancellation<br> Request Form</P>
                 </div>
-                <div class="">
-                    <table class="w-100">
-                        <tbody>
-                            <tr>
-                                <td align="center">
-                                    <img class="d-block" src="{{asset('images/logo.png')}}" width="100" alt="">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>                    
-                </div>
+                <div class="clearfix"></div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-12">
@@ -46,15 +39,15 @@
                             <table class="w-100" id="table-cancellation">
                                 <tbody>
                                     <tr>
-                                        <td class="w-50">Student Last Name : <span class="item-value">{{$data['last_name']}}</span></td>
                                         <td class="w-50">Student First Name : <span class="item-value">{{$data['first_name']}}</span></td>
+                                        <td class="w-50">Student Last Name : <span class="item-value">{{$data['last_name']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="">Email : <span class="item-value">{{$data['email']}}</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="w-50">Co-Signer's Last Name : <span class="item-value">{{$data['signer_last_name']}}</span></td>
                                         <td class="w-50">Co-Signer's First Name : <span class="item-value">{{$data['signer_first_name']}}</span></td>
+                                        <td class="w-50">Co-Signer's Last Name : <span class="item-value">{{$data['signer_last_name']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td class="w-50">Agreement Expiration Date : <span class="item-value">{{$data['expiration_date']}}</span></td>

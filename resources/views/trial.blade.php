@@ -15,7 +15,18 @@
     <link href="plugins/sign/css/jquery.signaturepad.css" rel="stylesheet">
     
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
-
+    <style>
+        @media(max-width: 768px){
+            #title {
+                position: relative !important;
+                margin: 20px auto;
+                text-align: center;
+            }
+            #logo {
+                text-align: center
+            }
+        }
+    </style>
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('plugins/sign/js/numeric-1.2.6.min.js')}}"></script>
@@ -38,10 +49,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2" id="logo">
                                     <img src="{{asset('images/logo.png')}}" width="120" alt="">
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-10" id="title">
                                     <h3 class="mt-3">Welcome to Gracie Barra Sufers Paradise</h3>
                                     <p>Trial / Casual Class Form</p>
                                 </div>

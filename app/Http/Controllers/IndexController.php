@@ -27,35 +27,35 @@ class IndexController extends Controller
     
     public function freeze(Request $request){
         $request->validate([
-            // 'email' => 'required|email',
+            'email' => 'required|email',
         ]);
         $data = $request->all();
         $pdf = PDF::loadView('pdf.freeze', compact('data'));
-        Mail::to($data['email'])->send(new SendMailMembership($data, $pdf));
+        Mail::to($data['email'])->send(new SendMailFreeze($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailFreeze($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
     }  
 
     public function trial(Request $request){
         $request->validate([
-            // 'email' => 'required|email',
+            'email' => 'required|email',
         ]);
         $data = $request->all();
         // dd($data);
         $pdf = PDF::loadView('pdf.trial', compact('data'));
-        Mail::to($data['email'])->send(new SendMailMembership($data, $pdf));
+        Mail::to($data['email'])->send(new SendMailTrial($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailTrial($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
     }
 
     public function cancellation(Request $request){
         $request->validate([
-            // 'email' => 'required|email',
+            'email' => 'required|email',
         ]);
         $data = $request->all();
         // dd($data);
         $pdf = PDF::loadView('pdf.cancellation', compact('data'));
-        Mail::to($data['email'])->send(new SendMailMembership($data, $pdf));
+        Mail::to($data['email'])->send(new SendMailCancellation($data, $pdf));
         Mail::to(env('ADMIN_EMAIL'))->send(new SendMailCancellation($data, $pdf));
         return back()->with('success', 'Email is sent successfully');
     }

@@ -24,22 +24,15 @@
 <body>
     <div class="main py-4">
         <div class="container-fluid">
-            <div class="card card-body w-100" style="position:relative">
-                <div style="position:absolute;top:0">
-                    <h5 class="mt-0">SURFERS PARADISE</h5>
-                    <P>Membership Suspension <br> Request Form</P>
+            <div class="card card-body w-100 d-inline-block">
+                <div class="w-25 float-left">
+                    <img src="{{asset('images/logo.png')}}" class="mt-3" width="100" alt="">
                 </div>
-                <div class="">
-                    <table class="w-100">
-                        <tbody>
-                            <tr>
-                                <td align="center">
-                                    <img class="d-block" src="{{asset('images/logo.png')}}" width="100" alt="">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>                    
+                <div class="w-75 float-right">
+                    <h3 class="mt-3">SURFERS PARADISE</h3>
+                    <P>Membership Suspension Request Form</P>
                 </div>
+                <div class="clearfix"></div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-12">
@@ -48,8 +41,8 @@
                             <table class="w-100" id="table-member">
                                 <tbody>
                                     <tr>
-                                        <td class="w-50">Student Last Name : <span class="item-value">{{$data['last_name']}}</span></td>
                                         <td class="w-50">Student First Name : <span class="item-value">{{$data['first_name']}}</span></td>
+                                        <td class="w-50">Student Last Name : <span class="item-value">{{$data['last_name']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td class="w-50">Email : <span class="item-value">{{$data['email']}}</span></td>
