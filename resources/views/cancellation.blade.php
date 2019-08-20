@@ -16,6 +16,16 @@
     
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
 
+    <style>
+        @media(max-width: 768px){
+            #title {
+                position: relative !important;
+                margin: 20px auto;
+                text-align: center;
+            }
+        }
+    </style>
+
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('plugins/sign/js/numeric-1.2.6.min.js')}}"></script>
@@ -42,7 +52,7 @@
                                     <div class="mx-auto d-flex">
                                         <img class="mx-auto" style="margin:auto" src="{{asset('images/logo.png')}}" width="120" alt="">
                                     </div>
-                                    <div style="position:absolute;top:0">
+                                    <div style="position:absolute;top:0" id="title">
                                         <h3 class="mt-0">GRACIE BARRA</h3>
                                         <P>Membership Cancellation Request Form</P>
                                     </div>
@@ -161,10 +171,10 @@
                                             <div class="col-md-12">
                                                 <h6 class="font-weight-bold">Signature</h6>
                                                 <input type="hidden" name="signature" id="signature" />
-                                                <div class="card card-body sign_area" style="width:345px;">
+                                                <div class="card card-body sign_area mw-100" style="width:345px;">
                                                     <div class="sig sigWrapper" style="height:102px;">
                                                         <div class="typed"></div>
-                                                        <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
+                                                        <canvas class="sign-pad mw-100" id="sign-pad" width="300" height="100"></canvas>
                                                     </div>
                                                 </div>
                                                 <a href="#" id="btnClearSign">Clear</a>

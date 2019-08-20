@@ -16,6 +16,18 @@
     
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
 
+    <style>
+        @media(max-width: 768px){
+            #title {
+                position: relative !important;
+                margin: 20px auto;
+                text-align: center;
+            }
+            #logo {
+                text-align: center
+            }
+        }
+    </style>
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('plugins/sign/js/numeric-1.2.6.min.js')}}"></script>
@@ -38,10 +50,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <img src="{{asset('images/logo.png')}}" width="120" alt="">
+                                <div class="col-md-2" id="logo">
+                                    <img src="{{asset('images/logo.png')}}" id="logo-img" width="120" alt="">
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-10" id="title">
                                     <h3 class="mt-3">MEMBERSHIP AGREEMENT</h3>
                                     <P>
                                         Gracie Barra Sufers Paradise (Mat Time Pty Ltd. ABN: 51 624 990 352) Unit 5, 46 smith St Southport Qld 4215
@@ -254,10 +266,10 @@
                                         <div class="w-100">
                                         <h6 class="font-weight-bold">Signature</h6>
                                         <input type="hidden" name="signature" id="signature" />
-                                        <div class="card card-body sign_area" style="width:345px;">
+                                        <div class="card card-body sign_area mw-100" style="width:345px;">
                                             <div class="sig sigWrapper" style="height:102px;">
                                                 <div class="typed"></div>
-                                                <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
+                                                <canvas class="sign-pad mw-100" id="sign-pad" width="300" height="100"></canvas>
                                             </div>
                                         </div>
                                         <a href="#" id="btnClearSign">Clear</a>

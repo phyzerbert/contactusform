@@ -257,10 +257,10 @@
                                     <div class="w-100">
                                         <h6 class="font-weight-bold">Signature</h6>
                                         <input type="hidden" name="signature" id="signature" />
-                                        <div class="card card-body sign_area" style="width:345px;">
+                                        <div class="card card-body sign_area mw-100" style="width:345px;">
                                             <div class="sig sigWrapper" style="height:102px;">
                                                 <div class="typed"></div>
-                                                <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
+                                                <canvas class="sign-pad mw-100" id="sign-pad" width="300" height="100"></canvas>
                                             </div>
                                         </div>
                                         <a href="#" id="btnClearSign">Clear</a>
