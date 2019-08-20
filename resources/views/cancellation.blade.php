@@ -159,7 +159,6 @@
                                     
                                 </div>
                                 
-
                                 <div class="row mt-3">
                                     <div class="col-md-12">
                                         <h4 class="font-weight-bold" style="text-decoration: underline">Cancellation Policy</h4>
@@ -172,7 +171,6 @@
                                         </ul>
                                     </div>
                                 </div>
-
                                 
                                 <div class="row" id="signaturePart">
                                     <div class="col-md-6">

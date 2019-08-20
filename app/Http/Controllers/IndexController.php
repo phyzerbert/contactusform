@@ -12,8 +12,7 @@ use App\Mail\SendMailTrial;
 use App\Mail\SendMailCancellation;
 
 class IndexController extends Controller
-{
-    
+{   
     
     public function membership(Request $request){
         $request->validate([
