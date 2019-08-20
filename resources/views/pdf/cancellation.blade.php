@@ -12,7 +12,7 @@
             font-size: 15px;
             font-weight: 500;
         }
-        table#table-cancelation>tbody>tr>td {
+        table#table-cancellation>tbody>tr>td {
             height: 50px;;
             font-size: 16px;
             font-weight: 600;
@@ -25,7 +25,7 @@
             <div class="card card-body w-100" style="position:relative">
                 <div style="position:absolute;top:0">
                     <h5 class="mt-0">GRACIE BARRA</h5>
-                    <P>Membership Cancelation<br> Request Form</P>
+                    <P>Membership Cancellation<br> Request Form</P>
                 </div>
                 <div class="">
                     <table class="w-100">
@@ -43,7 +43,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="w-100" id="table-cancelation">
+                            <table class="w-100" id="table-cancellation">
                                 <tbody>
                                     <tr>
                                         <td class="w-50">Student Last Name : <span class="item-value">{{$data['last_name']}}</span></td>
@@ -55,11 +55,11 @@
                                     </tr>
                                     <tr>
                                         <td class="w-50">Agreement Expiration Date : <span class="item-value">{{$data['expiration_date']}}</span></td>
-                                        <td class="w-50">Agreement Cancelation Date : <span class="item-value">{{$data['cancelation_date']}}</span></td>
+                                        <td class="w-50">Agreement Cancellation Date : <span class="item-value">{{$data['cancellation_date']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td class="w-50">Last Debit Date : <span class="item-value">{{$data['last_debit_date']}}</span></td>
-                                        <td class="w-50">Agreement Cancelation Amount : <span class="item-value">{{$data['cancelation_amount']}}</span></td>
+                                        <td class="w-50">Agreement Cancellation Amount : <span class="item-value">{{$data['cancellation_amount']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="w-50">Date Paid : <span class="item-value">{{$data['date_paid']}}</span></td>

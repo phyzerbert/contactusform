@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMailCancelation extends Mailable
+class SendMailCancellation extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,9 +32,9 @@ class SendMailCancelation extends Mailable
      */
     public function build()
     {
-        return $this->view('email.trial')
-            ->from("info@gbsurfersparadise.com.au", "Cancelation")
-            ->attachData($this->pdf->output(), 'cancelation.pdf', [
+        return $this->view('email.cancellation')
+            ->from("info@gbsurfersparadise.com.au", "Cancellation")
+            ->attachData($this->pdf->output(), 'cancellation.pdf', [
                 'mime' => 'application/pdf',
             ]);
     }

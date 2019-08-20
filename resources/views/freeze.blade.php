@@ -43,7 +43,7 @@
                                         <img class="mx-auto" style="margin:auto" src="{{asset('images/logo.png')}}" width="120" alt="">
                                     </div>
                                     <div style="position:absolute;top:0">
-                                        <h3 class="mt-0">SURFERS PARADOISE</h3>
+                                        <h3 class="mt-0">SURFERS PARADISE</h3>
                                         <P>Membership Suspension Request Form</P>
                                     </div>
                                 </div>                                

@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <div class="card card-body w-100" style="position:relative">
                 <div style="position:absolute;top:0">
-                    <h5 class="mt-0">SURFERS PARADOISE</h5>
+                    <h5 class="mt-0">SURFERS PARADISE</h5>
                     <P>Membership Suspension <br> Request Form</P>
                 </div>
                 <div class="">

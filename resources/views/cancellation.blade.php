@@ -44,7 +44,7 @@
                                     </div>
                                     <div style="position:absolute;top:0">
                                         <h3 class="mt-0">GRACIE BARRA</h3>
-                                        <P>Membership Cancelation Request Form</P>
+                                        <P>Membership Cancellation Request Form</P>
                                     </div>
                                 </div>                                
                             </div>
@@ -57,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('cancelation')}}" method="post" id="cancelation_form">
+                            <form action="{{route('cancellation')}}" method="post" id="cancellation_form">
                                 @csrf
                                 <div class="card">
                                     <div class="card-header">
@@ -90,8 +90,8 @@
                                                 <input type="text" class="form-control datepicker" name="expiration_date" autocomplete="off" placeholder="Enter Here" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="first_name">Cancelation Date</label>
-                                                <input type="text" class="form-control datepicker" name="cancelation_date" autocomplete="off" placeholder="Enter Cancelation Date" />
+                                                <label for="first_name">Cancellation Date</label>
+                                                <input type="text" class="form-control datepicker" name="cancellation_date" autocomplete="off" placeholder="Enter Cancellation Date" />
                                             </div>
                                         </div>                                        
                                         <div class="form-group row">
@@ -100,8 +100,8 @@
                                                 <input type="text" class="form-control datepicker" name="last_debit_date" autocomplete="off" placeholder="Enter Last Debit Date" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="first_name">Cancelation Payout Amount</label>
-                                                <input type="text" class="form-control" name="cancelation_amount" placeholder="Enter Cancelation Payout Amount" />
+                                                <label for="first_name">Cancellation Payout Amount</label>
+                                                <input type="text" class="form-control" name="cancellation_amount" placeholder="Enter Cancellation Payout Amount" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -213,7 +213,7 @@
 						let canvas_img_data = canvas.toDataURL('image/png');
 						let img_data = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
                         $("#signature").val(img_data);	
-                        $("#cancelation_form").submit();							
+                        $("#cancellation_form").submit();							
 					}
 				});
             });

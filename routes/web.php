@@ -27,13 +27,13 @@ Route::get('/freeze', function () {
 Route::get('/trial', function () {
     return view('trial');
 });
-Route::get('/cancelation', function () {
-    return view('cancelation');
+Route::get('/cancellation', function () {
+    return view('cancellation');
 });
 
 Route::post('/membership', 'IndexController@membership')->name('membership');
 Route::post('/freeze', 'IndexController@freeze')->name('freeze');
 Route::post('/trial', 'IndexController@trial')->name('trial');
-Route::post('/cancelation', 'IndexController@cancelation')->name('cancelation');
+Route::post('/cancellation', 'IndexController@cancellation')->name('cancellation');
 
 Route::get('/testpdf', 'IndexController@testpdf')->name('testpdf');
