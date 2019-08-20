@@ -265,6 +265,7 @@
                                                         <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
                                                     </div>
                                                 </div>
+                                                <a href="#" id="btnClearSign">Clear</a>
                                             </div> 
                                             <div class="col-md-12 mt-3">
                                                 <label class="font-weight-bold" for="parent_signature_date">Date</label>
@@ -319,6 +320,11 @@
                         $("#membership_form").submit();							
 					}
 				});
+            });
+            
+            $("#btnClearSign").click(function(e){
+                e.preventDefault();
+                $('.sign_area').signaturePad().clearCanvas ();
             });
         })
     </script>
