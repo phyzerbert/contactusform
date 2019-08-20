@@ -89,7 +89,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="first_name">Date Of Birth</label>
-                                        <input type="text" class="form-control datepicker" name="date_of_birth" autocomplete="off" placeholder="Enter Date Of Birth" />
+                                        <input type="text" class="form-control datepicker" name="date_of_birth" id="birthday" autocomplete="off" placeholder="Enter Date Of Birth" />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="first_name">Gender</label>
@@ -253,26 +253,21 @@
                                     </div>
                                 </div>
                                 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h6 class="font-weight-bold">Signature</h6>
-                                                <input type="hidden" name="signature" id="signature" />
-                                                <div class="card card-body sign_area" style="width:345px;">
-                                                    <div class="sig sigWrapper" style="height:102px;">
-                                                        <div class="typed"></div>
-                                                        <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
-                                                    </div>
-                                                </div>
-                                                <a href="#" id="btnClearSign">Clear</a>
-                                            </div> 
-                                            <div class="col-md-12 mt-3">
-                                                <label class="font-weight-bold" for="parent_signature_date">Date</label>
-                                                <input type="text" class="form-control datepicker-bottom" name="signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
-                                            </div>                                     
+                                <div class="w-100" id="signaturePart">
+                                    <div class="w-100">
+                                        <h6 class="font-weight-bold">Signature</h6>
+                                        <input type="hidden" name="signature" id="signature" />
+                                        <div class="card card-body sign_area" style="width:345px;">
+                                            <div class="sig sigWrapper" style="height:102px;">
+                                                <div class="typed"></div>
+                                                <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
+                                            </div>
                                         </div>
-                                                                              
+                                        <a href="#" id="btnClearSign">Clear</a>
+                                    </div> 
+                                    <div class="w-50">
+                                        <label class="font-weight-bold" for="parent_signature_date">Date</label>
+                                        <input type="text" class="form-control datepicker-bottom" name="signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
                                     </div>
                                 </div>
 
@@ -319,6 +314,18 @@
                 e.preventDefault();
                 $('.sign_area').signaturePad().clearCanvas ();
             });
+
+            // $("#birthday").change(function(){
+            //     var d = new Date();
+            //     let cur_year = d.getFullYear();
+            //     let birth_year = parseInt($(this).val().slice(-4));
+            //     let diff = cur_year - birth_year;
+            //     if(diff < 18){
+            //         $("#signaturePart").hide()
+            //     }else{
+            //         $("#signaturePart").show()
+            //     }
+            // });
         })
     </script>
 </body>

@@ -91,7 +91,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="first_name">Date Of Birth</label>
-                                        <input type="text" class="form-control datepicker" name="date_of_birth" autocomplete="off" placeholder="Enter Date Of Birth" />
+                                        <input type="text" class="form-control datepicker" name="date_of_birth" id="birthday" autocomplete="off" placeholder="Enter Date Of Birth" />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="first_name">Gender</label>
@@ -246,33 +246,25 @@
                                                 Gracie Barra Surfers Paradise, its servants and agents, from any claims by signing this document, however 
                                                 Gracie Barra Surfers Paradise may refuse to allow you to participate in the Brazilian Jiu Jitsu (BJJ) or our BarraFit training program, or to provide you with the associated services, if you do not agree to exclude, restrict, modify or waive your rights against, or release, the Gracie Barra Surfers Paradise, its servants and agents, by signing this document.   Even if you sign this document, you may still have further legal rights. 
                                                 </p>
-
-                                        <p class="font-weight-bold">By signing this agreement, I acknowledge that I have read, I understand and I agree to all details, payments and policies related to this agreement.</p>
-
                                     </div>
                                 </div>
-
                                 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h6 class="font-weight-bold">Signature</h6>
-                                                <input type="hidden" name="signature" id="signature" />
-                                                <div class="card card-body sign_area" style="width:345px;">
-                                                    <div class="sig sigWrapper" style="height:102px;">
-                                                        <div class="typed"></div>
-                                                        <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
-                                                    </div>
-                                                </div>
-                                                <a href="#" id="btnClearSign">Clear</a>
-                                            </div> 
-                                            <div class="col-md-12 mt-3">
-                                                <label class="font-weight-bold" for="parent_signature_date">Date</label>
-                                                <input type="text" class="form-control datepicker-bottom" name="signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
-                                            </div>                                     
+                                <div class="w-100" id="signaturePart">
+                                        <p class="font-weight-bold">By signing this agreement, I acknowledge that I have read, I understand and I agree to all details, payments and policies related to this agreement.</p>
+                                        <div class="w-100">
+                                        <h6 class="font-weight-bold">Signature</h6>
+                                        <input type="hidden" name="signature" id="signature" />
+                                        <div class="card card-body sign_area" style="width:345px;">
+                                            <div class="sig sigWrapper" style="height:102px;">
+                                                <div class="typed"></div>
+                                                <canvas class="sign-pad" id="sign-pad" width="300" height="100"></canvas>
+                                            </div>
                                         </div>
-                                                                              
+                                        <a href="#" id="btnClearSign">Clear</a>
+                                    </div> 
+                                    <div class="w-50 mt-3">
+                                        <label class="font-weight-bold" for="parent_signature_date">Date</label>
+                                        <input type="text" class="form-control datepicker-bottom" name="signature_date" value="{{date('d/m/Y')}}" autocomplete="off" id="parent_signature_date" placeholder="Enter Date" />
                                     </div>
                                 </div>
 
@@ -312,6 +304,11 @@
             $('.sign_area').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:90});
 
             $("#btn-submit").click(function(){
+                if($('.sign_area').signaturePad().isEmpty()){
+                    alert('empty');
+                }
+                alert(123)
+                return false;
                 html2canvas([document.getElementById('sign-pad')], {
 					onrendered: function (canvas) {
 						let canvas_img_data = canvas.toDataURL('image/png');
@@ -326,6 +323,18 @@
                 e.preventDefault();
                 $('.sign_area').signaturePad().clearCanvas ();
             });
+
+            // $("#birthday").change(function(){
+            //     var d = new Date();
+            //     let cur_year = d.getFullYear();
+            //     let birth_year = parseInt($(this).val().slice(-4));
+            //     let diff = cur_year - birth_year;
+            //     if(diff < 18){
+            //         $("#signaturePart").hide()
+            //     }else{
+            //         $("#signaturePart").show()
+            //     }
+            // });
         })
     </script>
 </body>
