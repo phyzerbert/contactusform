@@ -84,6 +84,15 @@
                                                 <input type="text" class="form-control" name="first_name" placeholder="Enter Student First Name" />
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Enter Email" />
+                                            @error('email')
+                                                <span class="invalid-feedback d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
                                         <div class="form-group row">
                                             <div class="col-md-6">
                                                 <label for="first_name">Co-Signer's Last Name</label>

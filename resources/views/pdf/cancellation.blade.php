@@ -50,6 +50,9 @@
                                         <td class="w-50">Student First Name : <span class="item-value">{{$data['first_name']}}</span></td>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class="">Email : <span class="item-value">{{$data['email']}}</span></td>
+                                    </tr>
+                                    <tr>
                                         <td class="w-50">Co-Signer's Last Name : <span class="item-value">{{$data['signer_last_name']}}</span></td>
                                         <td class="w-50">Co-Signer's First Name : <span class="item-value">{{$data['signer_first_name']}}</span></td>
                                     </tr>
