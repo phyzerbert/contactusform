@@ -162,10 +162,10 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            @php
+                            {{-- @php
                                 $age = date('Y') - date('Y', strtotime($data['date_of_birth']));
                             @endphp
-                            @if ($age >= 18)        
+                            @if ($age >= 18)         --}}
                                 <div class="w-100">
                                     <h6 class="font-weight-bold">Signature</h6>
                                     <div class="card mt-3" style="height:105px;width:300px;">
@@ -173,7 +173,7 @@
                                     </div>
                                     <h5 class="mt-4">Date : <span class="item-value">{{$data['signature_date']}}</span>                                                                               
                                 </div>
-                            @endif                            
+                            {{-- @endif                             --}}
                         </div>
                     </div>
                 </div>
