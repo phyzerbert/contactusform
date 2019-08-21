@@ -309,12 +309,8 @@
 
             $('.sign_area').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:90});
 
-            $("#btn-submit").click(function(){
-                if($('.sign_area').signaturePad().isEmpty()){
-                    alert('empty');
-                }
-                alert(123)
-                return false;
+            $("#btn-submit").click(function(){               
+               
                 html2canvas([document.getElementById('sign-pad')], {
 					onrendered: function (canvas) {
 						let canvas_img_data = canvas.toDataURL('image/png');
